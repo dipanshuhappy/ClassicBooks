@@ -1,4 +1,5 @@
 import { FlatList, Text, View } from "react-native";
+import BookCard from "../component/BookCard";
 import HorizontalListItem from "../component/HorizontalListItem";
 const data=[
     {
@@ -49,7 +50,7 @@ const HomeScreen = () => {
             <FlatList
             data={data}
             keyExtractor={(item)=>item.id.toString()}
-            renderItem={({item})=><HorizontalListItem title={item.title}/>}
+            renderItem={({item})=><BookCard title={item.title} subtitle="made in 1998" description="l;jsljdlsjlflsdflsdjlfsjlfjdsfldf" />}
             horizontal         
             />
         </View>
