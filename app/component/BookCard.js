@@ -1,16 +1,17 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 import { Button, Card, Title, Paragraph  } from 'react-native-paper';
-function BookCard({title,subtitle,description}) {
+const {width,height} = Dimensions.get('window')
+function BookCard({title,subtitle,description,image}) {
     return (
-        <Card>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <Card.Title title={title} subtitle={subtitle}/>
+        <Card style={{width:width/2.5}} >
+        <Card.Cover source={{ uri: image }} resizeMode='contain'/>
+        <Card.Title titleNumberOfLines={2} title={title} subtitle={subtitle}/>
         <Card.Content>
-          
-          <Paragraph>{description}</Paragraph>
+          <Paragraph style={{fontSize:10,marginBottom:30}} lineBreakMode="clip" numberOfLines={7} >{description}</Paragraph>
         </Card.Content>
-        <Card.Actions>
-          <Button>Add to read list</Button>
+        <Card.Actions style={{position:'absolute',bottom:0}}>
+          <Button>Add to list</Button>
           <Button>Ok</Button>
         </Card.Actions>
       </Card>

@@ -26,9 +26,9 @@ export default function App() {
     <SafeAreaView style={styles.container}>
      
       <Surface  theme={theme}>
-        {/* <HomeScreen /> */}
+        <HomeScreen />
          {/* <WelcomeScreen/> */}
-         <BookScreen/>
+         {/* <BookScreen/> */}
       </Surface>
 
     </SafeAreaView>
