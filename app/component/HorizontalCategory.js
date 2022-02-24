@@ -3,7 +3,7 @@ import { FlatList, Text, View } from "react-native";
 import { Headline } from "react-native-paper";
 import BookCard from "../component/BookCard";
 function HorizontalCategory({title,data}) {
-    const renderItem=({item})=><BookCard title={item.title} subtitle={item.subtitle} description={item.description} image={item.image} />
+    const renderItem=({item})=><BookCard id={item.id} title={item.title} subtitle={item.subtitle} description={item.description} image={item.image} />
     return (
         <View>
             <Headline style={{marginBottom:20}}>{title}</Headline>

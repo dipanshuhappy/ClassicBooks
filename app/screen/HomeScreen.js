@@ -61,9 +61,7 @@ const HomeScreen = () => {
         const respone=await fetch(`http://gutendex.com/books/?ids=${range}`)
         const json=await respone.json()
         for (const book of await  json.results){
-            console.log(book)
             const author=book.authors[0]?book.authors[0].name: 'Unknown'
-            console.log(author)
             const book_info={
                 id:book.id,
                 title:book.title,
@@ -86,7 +84,7 @@ const HomeScreen = () => {
     return (
         <ScrollView>
         <HorizontalCategory title="Popular" data={data}/>
-          <HorizontalCategory title="random" data={randomData}/>
+        <HorizontalCategory title="Random" data={randomData}/>
 
             
         </ScrollView>

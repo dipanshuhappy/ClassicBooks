@@ -24,7 +24,6 @@ const getBooksFromRange= async (start,end)=>{
     for (const book of await  json.results){
         finalData.push(getBookObject(book))   
     }
-    // console.log({finalData})
     return finalData
 }
 const getABook=async id=>{
@@ -38,14 +37,12 @@ const getRandomBooks=async numOfBooks=>{
         random_numbers.push(Math.floor(Math.random() * (40000)))
     }
     random_numbers=random_numbers.join(',')
-    console.log({random_numbers})
     finalData=[]
     const respone=await fetch(`${URL}/books/?ids=${random_numbers}`)
     const json=await respone.json()
     for (const book of await  json.results){
         finalData.push(getBookObject(book))   
     }
-    console.log({random:finalData})
     return finalData 
 }
 const getBooksByPopularity=numOfBooks=>{
