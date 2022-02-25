@@ -6,9 +6,9 @@ const {width,height} = Dimensions.get('window')
 function BookCard({id,title,subtitle,description,image,onClick}) {
     return (
         <Card style={{width:width/2.5}} >
-        <Card.Cover source={{ uri: image }} resizeMode='contain' onTouchStart={()=>onClick(id)}/>
+        <Card.Cover source={{ uri: image }} resizeMode='contain' />
         <Card.Title titleNumberOfLines={2} title={title} subtitle={subtitle}  />
-        <Card.Content onTouchStart={ ()=>console.log('sljfklljlds')}>
+        <Card.Content onTouchStart={()=>onClick(id)}>
           <Paragraph style={{fontSize:10,marginBottom:30}} lineBreakMode="clip" numberOfLines={7} >{description}</Paragraph>
         </Card.Content>
         <Card.Actions style={{position:'absolute',bottom:0}}>

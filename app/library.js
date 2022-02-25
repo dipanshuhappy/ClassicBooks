@@ -17,8 +17,8 @@ const getBookObject=book=>{
     }
 }
 const getBooksFromRange= async (start,end)=>{
-    range=getRange(start,end).join(',')
-    finalData=[]
+    const range=getRange(start,end).join(',')
+    const finalData=[]
     const respone=await fetch(`${URL}/books/?ids=${range}`)
     const json=await respone.json()
     for (const book of await  json.results){
@@ -56,5 +56,6 @@ const getBooksByTopic=(topic,numOfBooks)=>{
 }
 export{
     getBooksFromRange,
-    getRandomBooks
+    getRandomBooks,
+    getABook
 }

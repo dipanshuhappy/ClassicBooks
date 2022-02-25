@@ -51,9 +51,12 @@ import {getBooksFromRange, getRandomBooks} from '../library'
 
 // ]
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [data,setData]=useState([])
     const [randomData,setRandomData]=useState([])
+    const onClick=id=>{
+        navigation.navigate('Book',{id})
+    }
     const fetchData=async (number_of_books)=>{
         const finalData=[]
         const range=Array.from({length: number_of_books}, (_, i) => i + 1).join(',')
@@ -78,13 +81,14 @@ const HomeScreen = () => {
     // fetchData(1)
     // console.log(data,randomData)
     useEffect(()=>{
-        fetchData(3)
+        // fetchData(3)
+        getBooksFromRange(1,4).then(r=>setData(r))
         getRandomBooks(5).then(c=>setRandomData(c))
     },[])
     return (
         <ScrollView>
-        <HorizontalCategory title="Popular" data={data}/>
-        <HorizontalCategory title="Random" data={randomData}/>
+        <HorizontalCategory title="Popular" data={data}  onClick={onClick}/>
+        <HorizontalCategory title="Random" data={randomData} onClick={onClick}/>
 
             
         </ScrollView>
